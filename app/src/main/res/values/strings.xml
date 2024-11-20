@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">memoryMania</string>
+
+    <!-- Main menu buttons -->
+    <string name="play_game">Play Game</string>"
+    <string name="score_board">Score Board</string>"
+    <string name="game_instructions">Game Instructions</string>"
+    <string name="exit_game">Exit Game</string>"
+
+    <!-- Timer label -->
+    <string name="timer_label">Timer: </string>"
+
+    <!-- Game screen buttons -->
+    <string name="reset_game">Reset Game</string>"
+    <string name="back_to_menu">Back to menu</string>"
+
+    <!-- ScoreBoard labels  -->
+    <string name="score_board_title">ScoreBoard</string>"
+    <string name="best_time">Best Time: </string>
+
+    <!-- Game Instructions  -->
+    <string name="instructions_title">Game Instructions</string>"
+    <string name="instructions_text">Match all pairs of cards. Click a card to flip it, then click another card to try and find the pair. If they match, they stay flipped. Try to finish the game as fast as possible!</string>
+
+
 </resources>
