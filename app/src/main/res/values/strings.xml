@@ -2,10 +2,10 @@
     <string name="app_name">Memory Mania</string>
 
     <!-- Main menu buttons -->
-    <string name="play_game">Play Game</string>
-    <string name="score_board">Score Board</string>
-    <string name="game_instructions">Game Instructions</string>
-    <string name="exit_game">Exit Game</string>
+    <string name="play_game">PLAY GAME</string>
+    <string name="score_board">SCOREBOARD</string>
+    <string name="game_instructions">GAME INSTRUCTIONS</string>
+    <string name="exit_game">EXIT GAME</string>
 
     <!-- Timer label -->
     <string name="timer_label">Timer: </string>
