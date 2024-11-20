@@ -7,8 +7,9 @@
     <string name="game_instructions">GAME INSTRUCTIONS</string>
     <string name="exit_game">EXIT GAME</string>
 
-    <!-- Timer label -->
+    <!-- Timer label and gl hf-->
     <string name="timer_label">Timer: </string>
+    <string name="gl_hf">Good luck, have fun!"</string>
 
     <!-- Game screen buttons -->
     <string name="reset_game">Reset Game</string>

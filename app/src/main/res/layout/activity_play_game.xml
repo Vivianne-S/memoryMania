@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#075D92"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Good Luck, Have Fun Text -->
+    <TextView
+        android:id="@+id/gl_hfText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gl_hf"
+        android:textColor="#FE5900"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
+        android:gravity="center" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
