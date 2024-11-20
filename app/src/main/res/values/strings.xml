@@ -23,5 +23,13 @@
     <string name="instructions_title">Game Instructions</string>
     <string name="instructions_text">Match all pairs of cards. Click a card to flip it, then click another card to try and find the pair. If they match, they stay flipped. Try to finish the game as fast as possible!</string>
 
-
+    <!-- Image Description -->
+    <string name="image1_desc">Description for image 1</string>
+    <string name="image2_desc">Description for image 2</string>
+    <string name="image3_desc">Description for image 3</string>
+    <string name="image4_desc">Description for image 4</string>
+    <string name="image5_desc">Description for image 5</string>
+    <string name="image6_desc">Description for image 6</string>
+    <string name="image7_desc">Description for image 7</string>
+    <string name="image8_desc">Description for image 8</string>
 </resources>
