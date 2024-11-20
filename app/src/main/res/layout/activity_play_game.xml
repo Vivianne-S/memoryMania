@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#075D92"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#075D92">
 
     <!-- Good Luck, Have Fun Text -->
     <TextView
         android:id="@+id/gl_hfText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
         android:text="@string/gl_hf"
         android:textColor="#FE5900"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"
-        android:gravity="center" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timer_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/timer_label"
+        android:textColor="#FE5900"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/gl_hfText"
+        app:layout_constraintStart_toStartOf="@id/gl_hfText"
+
+ />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
