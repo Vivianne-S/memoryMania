@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#075D92">
@@ -18,7 +19,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gridLayout"/>
 
     <TextView
         android:id="@+id/timer_label"
@@ -35,114 +37,109 @@
     <!-- 4x4 GridLayout för images -->
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/timer_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/reset_game_button"
         android:layout_marginTop="30dp"
         android:columnCount="4"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:rowCount="2"
-
-        android:layout_margin="8dp">
+        android:rowCount="4"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:gravity="center"
+        app:layout_constraintHeight_default="spread">
 
         <!-- Image 1 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image1"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image1_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 2 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image2"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image2_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 3 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image3"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image3_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 4 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image4"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image4_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 5 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image5"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image5_desc"
-            android:src="@drawable/back_image"  />
+            android:src="@drawable/card_back"  />
 
         <!-- Image 6 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image6"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image6_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 7 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image7"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image7_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 8 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image8"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image8_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Duplicerade bilder för par -->
         <!-- Image 1 -->
@@ -150,107 +147,101 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image1"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
-            android:contentDescription="@string/image1_desc"/>
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:contentDescription="@string/image1_desc"
+            android:src="@drawable/card_back"/>
 
         <!-- Image 2 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image2"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image2_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 3 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image3"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image3_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 4 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image4"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image4_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 5 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image5"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image5_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 6 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image6"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image6_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 7 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image7"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image7_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back"/>
 
         <!-- Image 8 -->
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:src="@drawable/image8"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
             android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:contentDescription="@string/image8_desc"
-            android:src="@drawable/back_image"/>
+            android:src="@drawable/card_back" />
     </GridLayout>
 
 <!-- Reset Game Button -->
 <Button
-    android:id="@+id/resetGameButton"
+    android:id="@+id/reset_game_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/reset_game"
     app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-    app:layout_constraintStart_toStartOf="@id/gridLayout"
+    app:layout_constraintStart_toStartOf="parent"
     android:backgroundTint="#FE5900"
-    android:textColor="#FFFFFF"/>
+    android:textColor="#FFFFFF"
+    android:layout_marginTop="16dp"/>
 
     <!-- Back to Menu Button -->
 <Button
@@ -258,9 +249,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/back_to_menu"
-    app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-    app:layout_constraintStart_toEndOf="@id/gridLayout"
+    app:layout_constraintEnd_toEndOf="@id/gridLayout"
     android:backgroundTint="#FE5900"
     android:textColor="#FFFFFF"
-    />
+    android:layout_marginTop="8dp"
+    tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
