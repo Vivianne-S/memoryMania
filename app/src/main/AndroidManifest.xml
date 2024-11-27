@@ -12,8 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MemoryMania"
         tools:targetApi="31">
+
         <activity
             android:name=".PlayGameActivity">
+
+        </activity>
+        <activity
+            android:name=".ScoreBoardActivity">
 
         </activity>
 
