@@ -2,7 +2,7 @@ package com.example.memorymania
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,12 +22,16 @@ class MainActivity : AppCompatActivity() {
 
         // Sätter en click listener för att starta PlayGameActivity när knappen trycks och skapar en Intent för att starta PlayGameActivity.
         playGameButton.setOnClickListener {
+            // Logga för felsökning
+            Log.d("MainActivity", "Play Game Button clicked")
             val intent = Intent(this, PlayGameActivity::class.java)
             startActivity(intent)
         }
 
         // Sätter en click listener för att starta ScoreBoardActivity när knappen trycks och skapar en Intent för att starta ScoreBoardActivity.
         scoreBoardButton.setOnClickListener {
+            // Logga för felsökning
+            Log.d("MainActivity", "ScoreBoard Button clicked")
             startActivity(Intent(this, ScoreBoardActivity::class.java))
         }
 

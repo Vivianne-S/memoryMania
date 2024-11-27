@@ -35,7 +35,7 @@ class PlayGameActivity : AppCompatActivity() {
         R.drawable.image6,
         R.drawable.image7,
         R.drawable.image8
-    ).shuffled()
+    )
 
     private val handler = Handler(Looper.getMainLooper())
     private var elapsedTime = 0
@@ -49,30 +49,30 @@ class PlayGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_game) // Sätter xml för Play Game activity när knappen trycks.
 
-        // Refernser till UI element
+        // Referenser till UI-element
         resetButton = findViewById(R.id.reset_game_button)
         backToMenuButton = findViewById(R.id.back_to_menu_button)
         timerLabel = findViewById(R.id.timer_label)
         gridLayout = findViewById(R.id.gridLayout)
 
-        // Skapa ImageView för varje kort i rutnätet
+        // Skapa ImageViews för varje kort i rutnätet
         images = createImageViews()
 
-        // Lägger till bilderna i gridLayout
+        // Lägg till bilderna i gridLayout
         images.forEach { gridLayout.addView(it) }
 
-        // Hanterar reset knappen
+        // Hantera reset-knappen
         resetButton.setOnClickListener {
             resetGame()
         }
 
-        // Hanterar back to menu knappen
+        // Hantera back to menu-knappen
         backToMenuButton.setOnClickListener {
             finish()  // Avslutar aktivitet och går tillbaka till huvudmenyn.
         }
     }
 
-    // Skapa ImageView för varje kort och sätt baksida-bild
+    // Skapa ImageView för varje kort och sätt baksidan av kortet
     private fun createImageViews(): Array<ImageView> {
         val shuffledImages = imageResources.shuffled()
         return shuffledImages.map { imageRes ->
@@ -107,18 +107,30 @@ class PlayGameActivity : AppCompatActivity() {
         }
     }
 
-    // Kollar om två vända kort är par
+    // Kollar om två vända kort är ett par
     private fun checkForMatch() {
         if (flippedCards[0].second == flippedCards[1].second) {
             flippedCards.clear()
             matchedPairs++
-
             if (matchedPairs == imageResources.size / 2) {
-                // Använder strängresurs för att visa texten
-                timerLabel.text =
-                    getString(R.string.game_completed_message, elapsedTime)
-                handler.removeCallbacksAndMessages(null)
+                // Displayar congrats
+                timerLabel.text = getString(R.string.game_completed_message, elapsedTime)
+
+                // Save the time to SharedPreferences
+                val sharedPref = getSharedPreferences("game_data", MODE_PRIVATE)
+                val times = sharedPref.getStringSet("best_times", mutableSetOf())!!.map { it.toInt() }.toMutableList()
+
+                // Lägger till nya tider till scoreboard listan.
+                times.add(elapsedTime)
+                times.sort()
+
+                // Sparar top 5 tider i SharedPreferences
+                sharedPref.edit().putStringSet("best_times", times.take(5).map { it.toString() }.toSet()).apply()
+
+                val resetGameButton: Button = findViewById(R.id.reset_game_button)
+                val backToMenuButton: Button = findViewById(R.id.back_to_menu_button)
             }
+
         } else {
             handler.postDelayed({
                 flippedCards[0].first.setImageResource(R.drawable.card_back)
@@ -147,15 +159,17 @@ class PlayGameActivity : AppCompatActivity() {
         firstClick = true
         timerStarted = false
         handler.removeCallbacksAndMessages(null)
+
+        // Återställ korten till baksidan
         images.forEach {
             it.setImageResource(R.drawable.card_back)
-            flippedCards.clear()
+        }
 
-            val shuffledImages = imageResources.shuffled()
-            images.forEachIndexed { index, imageView ->
-                imageView.setImageResource(R.drawable.card_back)
-                imageView.setOnClickListener { onCardClicked(imageView, shuffledImages[index]) }
-            }
+        // Slumpa om korten och återställ spelet
+        val shuffledImages = imageResources.shuffled()
+        images.forEachIndexed { index, imageView ->
+            imageView.setImageResource(R.drawable.card_back)
+            imageView.setOnClickListener { onCardClicked(imageView, shuffledImages[index]) }
         }
     }
 }
