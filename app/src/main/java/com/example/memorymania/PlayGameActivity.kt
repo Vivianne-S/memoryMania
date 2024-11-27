@@ -1,6 +1,8 @@
 package com.example.memorymania
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.GridLayout
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
@@ -35,6 +37,12 @@ class PlayGameActivity : AppCompatActivity() {
         R.drawable.image8
     )
 
+    private val handler = Handler(Looper.getMainLooper())
+    private var elapsedTime = 0
+    private var firstClick = true
+    private var timerStarted = false
+    private var flippedCards = mutableListOf<Pair<ImageView, Int>>()
+    private var matchedPairs = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +51,6 @@ class PlayGameActivity : AppCompatActivity() {
         // Skapar ImageViews för varje kort och lägger till i layout
         images = createImageViews()
         images.forEach { gridLayout.addView(it) }
-
-
 
 
     // Refernser till UI element
@@ -64,6 +70,8 @@ class PlayGameActivity : AppCompatActivity() {
             finish()  // Avslutar aktivitet och går tillbaka till huvudmenyn.
         }
     }
+
+
 
 
     // Skapar ImageViews för korten
