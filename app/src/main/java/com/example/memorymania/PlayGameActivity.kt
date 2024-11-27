@@ -139,10 +139,23 @@ class PlayGameActivity : AppCompatActivity() {
         }, 1000)
     }
 
-
+    // Startar om spelet med nya slumpmässiga placeringar av korten
     private fun resetGame() {
+        elapsedTime = 0
+        // Återställer timer-label med hjälp av strängresurs
+        timerLabel.text = getString(R.string.timer_label, elapsedTime)
+        firstClick = true
+        timerStarted = false
+        handler.removeCallbacksAndMessages(null)
+        images.forEach {
+            it.setImageResource(R.drawable.card_back)
+            flippedCards.clear()
 
+            val shuffledImages = imageResources.shuffled()
+            images.forEachIndexed { index, imageView ->
+                imageView.setImageResource(R.drawable.card_back)
+                imageView.setOnClickListener { onCardClicked(imageView, shuffledImages[index]) }
+            }
+        }
     }
 }
-
-
