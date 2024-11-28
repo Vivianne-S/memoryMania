@@ -9,22 +9,28 @@
 
     <!-- Timer label and gl hf-->
     <string name="timer_label">Timer: %1$d </string>
-    <string name="gl_hf">Good luck, have fun!"</string>
+    <string name="gl_hf">Good luck, have fun!</string>
 
     <!-- Game screen buttons -->
     <string name="reset_game">Reset Game</string>
     <string name="back_to_menu">Back to menu</string>
 
-    <!-- ScoreBoard labels  -->
+    <!-- ScoreBoard labels -->
     <string name="score_board_title">ScoreBoard</string>
     <string name="best_time">Best Time: </string>
 
-    <!-- Game Instructions  -->
+    <!-- Game Instructions -->
     <string name="instructions_title">Game Instructions</string>
     <string name="instructions_text">Match all pairs of cards. Click a card to flip it, then click another card to try and find the pair. If they match, they stay flipped. Try to finish the game as fast as possible!</string>
 
     <!-- Game completion message format -->
     <string name="game_completed_message">Congratulations! You completed the game in %1$d seconds.</string>
+
+    <!-- Best time display text (used in ScoreBoardActivity) -->
+    <string name="best_time_display">Best Time: Not Set</string>
+
+    <!-- Scoreboard list placeholder text (used in ScoreBoardActivity) -->
+    <string name="score_board_list">No scores yet!</string>
 
     <!-- Image Description -->
     <string name="image1_desc">Description for image 1</string>
