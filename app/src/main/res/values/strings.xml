@@ -24,7 +24,7 @@
     <string name="instructions_text">Match all pairs of cards. Click a card to flip it, then click another card to try and find the pair. If they match, they stay flipped. Try to finish the game as fast as possible!</string>
 
     <!-- Game completion message format -->
-    <string name="game_completed_message">Congratulations! You completed the game in %1$d seconds.</string>
+    <string name="game_completed_message">GG! Game completed in %1$d seconds.</string>
 
     <!-- Best time display text (used in ScoreBoardActivity) -->
     <string name="best_time_display">Best Time: Not Set</string>

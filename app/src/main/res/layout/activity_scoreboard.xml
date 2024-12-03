@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:lineSpacingExtra="8dp"
+        android:lineSpacingExtra="12dp"
         android:layout_gravity="center"
         android:text="@string/score_board_list"
         android:textColor="#FFFFFF"
@@ -41,6 +41,5 @@
         app:layout_constraintTop_toBottomOf="@id/score_board_list"
         android:backgroundTint="#FE5900"
         android:text="@string/back_to_menu"
-        android:textColor="#FFFFFF"
-        />
+        android:textColor="#FFFFFF"/>
 </LinearLayout>

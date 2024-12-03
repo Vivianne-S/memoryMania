@@ -21,9 +21,9 @@ class ScoreBoardActivity : AppCompatActivity() {
             val topTimes = times.take(10)
 
             // Formatera listan med de bästa tiderna
-            val formattedTimes = topTimes.mapIndexed { index, time -> "${index + 1}. $time sekunder" }
+            val formattedTimes = topTimes.mapIndexed { index, time -> "${index + 1}. $time seconds" }
 
-            // Visa tiderna i ScrollView TextView
+            // Visa tiderna i TextView
             val scoreBoardList = findViewById<TextView>(R.id.score_board_list)
             scoreBoardList.text = if (formattedTimes.isEmpty()) {
                 "No scores yet!" // Visa ett meddelande om inga tider finns
