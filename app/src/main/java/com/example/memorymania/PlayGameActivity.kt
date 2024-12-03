@@ -14,7 +14,7 @@ class PlayGameActivity : AppCompatActivity() {
     private lateinit var images: Array<ImageView> // Håller alla ImageView-objekt för korten
     private lateinit var resetButton: Button // Knapp för att återställa spelet
     private lateinit var backToMenuButton: Button // Knapp för att gå tillbaka till huvudmenyn
-    private lateinit var timerLabel: TextView // Visar den tiden under spelets gång
+    private lateinit var timerLabel: TextView // Visar den förflutna tiden under spelets gång
     private lateinit var gridLayout: GridLayout // GridLayout som innehåller korten
 
     // Lista med bildresurser som representerar paren
