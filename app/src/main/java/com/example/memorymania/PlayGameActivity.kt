@@ -127,7 +127,7 @@ class PlayGameActivity : AppCompatActivity() {
                 times.add(elapsedTime)
                 times.sort()
 
-                // Spara top 5 tider i SharedPreferences
+                // Spara top 10 tider i SharedPreferences
                 sharedPref.edit().putStringSet("best_times", times.take(10).map { it.toString() }.toSet()).apply()
 
                 // Blockera alla kort så att inga fler klick kan göras
@@ -135,10 +135,9 @@ class PlayGameActivity : AppCompatActivity() {
                     it.isClickable = false
                 }
 
-                // Visa ett meddelande för att meddela att spelet är klart
-                // Detta gör att knappen "Back to Menu" inte längre kan användas efter att spelet är slut
-                backToMenuButton.isEnabled = false
-                resetButton.isEnabled = false
+             // Gör så att man kan använda knapparna även under spelets gång.
+                backToMenuButton.isEnabled = true
+                resetButton.isEnabled = true
             }
 
         } else {
