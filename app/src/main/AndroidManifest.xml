@@ -21,6 +21,7 @@
             android:name=".ScoreBoardActivity">
 
         </activity>
+        <activity android:name=".InstructionsActivity" />
 
         <activity
             android:name=".MainActivity"

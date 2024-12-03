@@ -16,9 +16,13 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Hitta knappen för att spela spelet
-        val playGameButton = findViewById<Button>(R.id.playGameButton)
+        // Knappar för att öppna olika sidor
+        val playGameButton: Button = findViewById(R.id.playGameButton)
         val scoreBoardButton: Button = findViewById(R.id.scoreBoardButton)
+        val instructionsButton: Button = findViewById(R.id.gameInstructionsButton)
+        val exitGameButton: Button = findViewById(R.id.exitGameButton)
+
+
 
         // Sätter en click listener för att starta PlayGameActivity när knappen trycks och skapar en Intent för att starta PlayGameActivity.
         playGameButton.setOnClickListener {
@@ -30,10 +34,21 @@ class MainActivity : AppCompatActivity() {
 
         // Sätter en click listener för att starta ScoreBoardActivity när knappen trycks och skapar en Intent för att starta ScoreBoardActivity.
         scoreBoardButton.setOnClickListener {
-            // Logga för felsökning
             Log.d("MainActivity", "ScoreBoard Button clicked")
             startActivity(Intent(this, ScoreBoardActivity::class.java))
         }
+
+        instructionsButton.setOnClickListener {
+            Log.d("MainActivity", "Instructions Button clicked")
+            val intent = Intent(this, InstructionsActivity::class.java)
+            startActivity(intent)
+        }
+
+        exitGameButton.setOnClickListener {
+            Log.d("MainActivity", "Exit Game Button clicked")
+            finish() // Avslutar appen
+        }
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

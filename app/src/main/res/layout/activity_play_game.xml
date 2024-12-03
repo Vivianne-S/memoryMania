@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#075D92">
+    android:background="#075D92"
+    android:padding="16dp">
 
     <!-- Good Luck, Have Fun Text -->
     <TextView
@@ -34,7 +35,7 @@
         app:layout_constraintStart_toStartOf="@id/gl_hfText"
         app:layout_constraintTop_toBottomOf="@id/gl_hfText" />
 
-    <!-- 4x4 GridLayout för images -->
+    <!-- 4x4 GridLayout for images -->
     <GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
@@ -140,7 +141,7 @@
             android:contentDescription="@string/image8_desc"
             android:src="@drawable/card_back"/>
 
-        <!-- Duplicerade bilder för par -->
+        <!-- Duplicated pictures -->
         <!-- Image 1 -->
         <ImageView
             android:layout_width="0dp"
