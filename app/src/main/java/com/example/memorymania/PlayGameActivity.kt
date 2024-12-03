@@ -35,7 +35,7 @@ class PlayGameActivity : AppCompatActivity() {
         R.drawable.image6,
         R.drawable.image7,
         R.drawable.image8
-    ).shuffled()
+    )
 
     private val handler = Handler(Looper.getMainLooper())
     private var elapsedTime = 0
@@ -49,30 +49,30 @@ class PlayGameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_game) // Sätter xml för Play Game activity när knappen trycks.
 
-        // Refernser till UI element
+        // Referenser till UI-element
         resetButton = findViewById(R.id.reset_game_button)
         backToMenuButton = findViewById(R.id.back_to_menu_button)
         timerLabel = findViewById(R.id.timer_label)
         gridLayout = findViewById(R.id.gridLayout)
 
-        // Skapa ImageView för varje kort i rutnätet
+        // Skapa ImageViews för varje kort i rutnätet
         images = createImageViews()
 
-        // Lägger till bilderna i gridLayout
+        // Lägg till bilderna i gridLayout
         images.forEach { gridLayout.addView(it) }
 
-        // Hanterar reset knappen
+        // Hantera reset-knappen
         resetButton.setOnClickListener {
             resetGame()
         }
 
-        // Hanterar back to menu knappen
+        // Hantera back to menu-knappen
         backToMenuButton.setOnClickListener {
             finish()  // Avslutar aktivitet och går tillbaka till huvudmenyn.
         }
     }
 
-    // Skapa ImageView för varje kort och sätt baksida-bild
+    // Skapa ImageView för varje kort och sätt baksidan av kortet
     private fun createImageViews(): Array<ImageView> {
         val shuffledImages = imageResources.shuffled()
         return shuffledImages.map { imageRes ->
@@ -107,19 +107,42 @@ class PlayGameActivity : AppCompatActivity() {
         }
     }
 
-    // Kollar om två vända kort är par
+    // Kollar om två vända kort är ett par
     private fun checkForMatch() {
         if (flippedCards[0].second == flippedCards[1].second) {
             flippedCards.clear()
             matchedPairs++
 
+            // Kolla om alla kort är matchade
             if (matchedPairs == imageResources.size / 2) {
-                // Använder strängresurs för att visa texten
-                timerLabel.text =
-                    getString(R.string.game_completed_message, elapsedTime)
+                // Alla kort är matchade, spelet är klart
+                timerLabel.text = getString(R.string.game_completed_message, elapsedTime)
+
+                // Stoppa timern
                 handler.removeCallbacksAndMessages(null)
+
+                // Spara bästa tider i SharedPreferences
+                val sharedPref = getSharedPreferences("game_data", MODE_PRIVATE)
+                val times = sharedPref.getStringSet("best_times", mutableSetOf())!!.map { it.toInt() }.toMutableList()
+                times.add(elapsedTime)
+                times.sort()
+
+                // Spara top 5 tider i SharedPreferences
+                sharedPref.edit().putStringSet("best_times", times.take(10).map { it.toString() }.toSet()).apply()
+
+                // Blockera alla kort så att inga fler klick kan göras
+                images.forEach {
+                    it.isClickable = false
+                }
+
+                // Visa ett meddelande för att meddela att spelet är klart
+                // Detta gör att knappen "Back to Menu" inte längre kan användas efter att spelet är slut
+                backToMenuButton.isEnabled = false
+                resetButton.isEnabled = false
             }
+
         } else {
+            // Om inte matchat, vänta 1 sekund och vänd tillbaka korten
             handler.postDelayed({
                 flippedCards[0].first.setImageResource(R.drawable.card_back)
                 flippedCards[1].first.setImageResource(R.drawable.card_back)
@@ -127,6 +150,8 @@ class PlayGameActivity : AppCompatActivity() {
             }, 1000)
         }
     }
+
+
 
     private fun startTimer() {
         firstClick = false
@@ -139,7 +164,7 @@ class PlayGameActivity : AppCompatActivity() {
         }, 1000)
     }
 
-    // Startar om spelet med nya slumpmässiga placeringar av korten
+
     private fun resetGame() {
         elapsedTime = 0
         // Återställer timer-label med hjälp av strängresurs
@@ -147,15 +172,22 @@ class PlayGameActivity : AppCompatActivity() {
         firstClick = true
         timerStarted = false
         handler.removeCallbacksAndMessages(null)
+
+        // Återställ korten till baksidan
         images.forEach {
             it.setImageResource(R.drawable.card_back)
-            flippedCards.clear()
-
-            val shuffledImages = imageResources.shuffled()
-            images.forEachIndexed { index, imageView ->
-                imageView.setImageResource(R.drawable.card_back)
-                imageView.setOnClickListener { onCardClicked(imageView, shuffledImages[index]) }
-            }
+            it.isClickable = true // Gör korten klickbara igen
         }
+
+        // Slumpa om korten och återställ spelet
+        val shuffledImages = imageResources.shuffled()
+        images.forEachIndexed { index, imageView ->
+            imageView.setImageResource(R.drawable.card_back)
+            imageView.setOnClickListener { onCardClicked(imageView, shuffledImages[index]) }
+        }
+
+        // Aktivera knapparna igen
+        backToMenuButton.isEnabled = true
+        resetButton.isEnabled = true
     }
 }

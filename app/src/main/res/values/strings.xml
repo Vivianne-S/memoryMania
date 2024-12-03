@@ -9,22 +9,45 @@
 
     <!-- Timer label and gl hf-->
     <string name="timer_label">Timer: %1$d </string>
-    <string name="gl_hf">Good luck, have fun!"</string>
+    <string name="gl_hf">Good luck, have fun!</string>
 
     <!-- Game screen buttons -->
     <string name="reset_game">Reset Game</string>
     <string name="back_to_menu">Back to menu</string>
 
-    <!-- ScoreBoard labels  -->
+    <!-- ScoreBoard labels -->
     <string name="score_board_title">ScoreBoard</string>
     <string name="best_time">Best Time: </string>
+    <string name="score_board_list">No scores yet!</string>
 
-    <!-- Game Instructions  -->
+    <!-- Game Instructions -->
     <string name="instructions_title">Game Instructions</string>
-    <string name="instructions_text">Match all pairs of cards. Click a card to flip it, then click another card to try and find the pair. If they match, they stay flipped. Try to finish the game as fast as possible!</string>
+    <string name="instructions_text">
+  <string name="game_instructions">
+    Memory Game Instructions\n\n
+    Objective:\n The goal is to match all pairs of cards in the shortest time possible.\n\n
+    1. Starting the Game:\n
+    • Tap any card to flip it over and reveal the image.\n
+    • The timer will automatically start as soon as you flip the first card.\n\n
+    2. How to Play:\n
+    • Flip two cards at a time to try to find a matching pair.\n
+    • If the two cards match, they will stay face up.\n
+    • If they do not match, they will flip back over after a short pause, so you can remember their positions.\n\n
+    3. Winning the Game:\n
+    • The game is complete once all card pairs are matched.\n
+    • Your final score is determined by how quickly you find all pairs.\n\n
+    4. Timer and Moves:\n
+    • The timer at the top of the screen shows how long you’ve been playing.\n
+    • Try to find all pairs before the timer reaches a high number!\n\n
+    5. Restarting the Game:\n
+    • You can press the Reset button at any time to restart the game with a new card arrangement.\n\n
+</string>
+
+</string>
+
 
     <!-- Game completion message format -->
-    <string name="game_completed_message">Congratulations! You completed the game in %1$d seconds.</string>
+    <string name="game_completed_message">GG! Game completed in %1$d seconds.</string>
 
     <!-- Image Description -->
     <string name="image1_desc">Description for image 1</string>
