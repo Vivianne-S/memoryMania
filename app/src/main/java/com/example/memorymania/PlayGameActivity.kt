@@ -41,7 +41,6 @@ class PlayGameActivity : AppCompatActivity() {
     private var elapsedTime = 0 // Förfluten tid som ska visas på skärmen
     private var firstClick = true // Kontrollera om det är första klicket för att starta timern
     private var timerStarted = false // Flagga för att hålla reda på om timern redan har startat
-
     private var flippedCards = mutableListOf<Pair<ImageView, Int>>() // Lista som håller reda på vända kort
     private var matchedPairs = 0 // Räknare för antal matchade kortpar
 
@@ -106,7 +105,7 @@ class PlayGameActivity : AppCompatActivity() {
         imageView.setImageResource(imageRes)
         flippedCards.add(Pair(imageView, imageRes)) // Lägger till det vända kortet i listan
 
-        // Om två kort har vänt på sig, kollar vi om de är ett par
+        // Om två kort har vänt på sig, kollas det om de är ett par
         if (flippedCards.size == 2) {
             checkForMatch() // Anropar checkForMatch-metoden för att kontrollera om korten matchar
         }
